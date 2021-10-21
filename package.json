@@ -4,6 +4,10 @@
   "description": "",
   "main": "./dist/usersApi.js",
   "types": "./dist/usersApi.d.ts",
+  "homepage": "https://github.com/vvscode/users-interview-api",
+  "bugs": {
+    "url": "https://github.com/vvscode/users-interview-api/issues"
+  },
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc -D",

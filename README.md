@@ -1,5 +1,8 @@
 # Fake users API for interviews
 
+[![NPM](https://nodei.co/npm/users-interview-api.png)](https://npmjs.org/package/users-interview-api)
+
+
 The package provides next api, which can be used during the interview:
 
 ```ts
