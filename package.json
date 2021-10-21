@@ -1,0 +1,22 @@
+{
+  "name": "users-interview-api",
+  "version": "0.0.4",
+  "description": "",
+  "main": "./dist/usersApi.js",
+  "types": "./dist/usersApi.d.ts",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "tsc -D",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^5.5.3"
+  },
+  "devDependencies": {
+    "@types/faker": "^5.5.9",
+    "typescript": "^4.4.4"
+  }
+}
