@@ -17,7 +17,12 @@ declare type User = {
 export declare const getUsers: ({ page, limit }: {
     page?: number | undefined;
     limit?: number | undefined;
-}) => Promise<User[]>;
+}) => Promise<{
+  data:User[],
+  total: number,
+  page: number,
+  pageSize: number
+}>;
 
 
 export declare const createUser: (userData: Omit<User, 'id' | 'last_modified_timestamp'>) => Promise<User>;
@@ -35,7 +40,7 @@ import { getUsers, createUser } from 'users-interview-api';
 getUsers().then((usersList) => console.log('users:', usersList));
 
 // specific page
-getUsers({ page: 2, limit: 3 }).then((usersList) => console.log('users:', usersList));
+getUsers({ page: 2, limit: 3 }).then((usersList) => console.log('users:', usersList.data));
 
 // create new user
 createUser({
