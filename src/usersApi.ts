@@ -37,11 +37,21 @@ const data: User[] = [...Array.from({ length: 200 })].map((_, index) => ({
     Number(new Date(random(2012, 2012), random(1, 11), random(1, 28))) / 1000,
 }));
 
-export const getUsers = async ({ page = 1, limit = data.length } = {}): Promise<User[]> => {
+export const getUsers = async ({ page = 1, limit = data.length } = {}): Promise<{
+  data:User[],
+  total: number,
+  page: number,
+  pageSize: number
+}> => {
   await maybeMakeDelay();
   await maybeThrowError();
 
-  return data.slice(limit * Math.max(page - 1, 0), limit * page);
+  return {
+    data: data.slice(limit * Math.max(page - 1, 0), limit * page),
+    total: data.length,
+    page,
+    pageSize: limit
+  }
 };
 
 export const createUser = async (userData: Omit<User, 'id' | 'last_modified_timestamp'>): Promise<User> => {
