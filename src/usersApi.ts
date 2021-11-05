@@ -20,7 +20,7 @@ const maybeThrowError = async () => {
   }
 }
 
-type User = {
+export type User = {
   name: string;
   email: string;
   login: string;
