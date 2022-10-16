@@ -28,7 +28,7 @@ export type User = {
   last_modified_timestamp: number;
 }
 
-const data: User[] = [...Array.from({ length: 200 })].map((_, index) => ({
+let data: User[] = [...Array.from({ length: 200 })].map((_, index) => ({
   name: faker.name.findName(),
   email: faker.internet.email(),
   login: faker.lorem.slug(),
@@ -69,7 +69,14 @@ export const createUser = async (userData: Omit<User, 'id' | 'last_modified_time
   return newUser;
 };
 
+export const deleteUser = async (id: number) => {
+  data = data.filter(user => user.id !== id);
+
+  return;
+}
+
 export default {
   getUsers,
   createUser,
+  deleteUser,
 };
